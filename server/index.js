@@ -8,7 +8,9 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: process.env.NODE_ENV === "production"
+      ? process.env.CLIENT_URL
+      : "*",
     methods: ["POST", "GET"],
     credentials: true,
   }),
@@ -22,7 +24,7 @@ const PORT = process.env.PORT || 6001;
 const client = new MongoClient(url);
 
 let Points = 0;
-const dbName = "digikviz";
+const dbName = process.env.DB_NAME;
 
 async function main() {
   try {
@@ -31,7 +33,7 @@ async function main() {
     const db = client.db(dbName);
 
     app.listen(PORT, () => {
-      console.log("App running at port 6001.");
+      console.log(`App running at port ${PORT}.`);
     });
 
     app.post("/datas", async (req, res) => {
