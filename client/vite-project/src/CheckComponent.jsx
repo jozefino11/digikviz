@@ -4,16 +4,14 @@ const CheckComponent = ({ checkMessage }) => {
     <div>
       {checkMessage === "Jó válasz" ? (
         <img
-          src="../public/check-icon.png"
-          id="check-icon"
+          src="/check-icon.png"
           id="check-icon"
           style={{ display: "block" }}
         />
       ) : null}
       {checkMessage === "Rossz válasz" ? (
         <img
-          src="../public/incorrect-icon.png"
-          id="incorrect-icon"
+          src="/incorrect-icon.png"
           id="incorrect-icon"
           style={{ display: "block" }}
         />
