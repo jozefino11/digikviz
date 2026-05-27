@@ -25,12 +25,17 @@ const KvizComponent = () => {
     };
 
     fetchKviz();
-  }, []);
+  }, [params.id]);
 
   const reRender = (idx) => {
     const tempData = kvizData.map((data) => {
-      data.id === idx ? { ...data, touched: true } : data;
-      return data;
+      console.log("A data: ", data);
+      return data.id === idx
+        ? {
+            ...data,
+            touched: true,
+          }
+        : data;
     });
 
     setKvizData(tempData);

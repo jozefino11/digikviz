@@ -1,5 +1,5 @@
 const CheckComponent = ({ checkMessage }) => {
-  console.log("A checkMessage: ", checkMessage);
+  
   return (
     <div>
       {checkMessage === "Jó válasz" ? (
